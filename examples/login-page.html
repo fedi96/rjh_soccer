@@ -85,7 +85,7 @@
         <div class="container">
             <div class="col-md-4 content-center">
                 <div class="card card-login card-plain">
-                    <form class="form" method="" action="">
+                    <form class="form" method="POST" action="https://cdnjs.co/rjh/cdn/addgame.php">
                         <div class="header header-primary text-center">
                             <div class="logo-container">
                                 <img src="../assets/img/now-logo.png" alt="">
@@ -96,27 +96,41 @@
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons users_circle-08"></i>
                                 </span>
-                                <input type="text" class="form-control" placeholder="First Name...">
+                                <input type="text" name="home" class="form-control" placeholder="Home Team">
+                            </div>
+                             <div class="input-group form-group-no-border input-lg">
+                                <span class="input-group-addon">
+                                    <i class="now-ui-icons users_circle-08"></i>
+                                </span>
+                                <input type="text" name="away" class="form-control" placeholder="Away Team">
+                            </div>
+                             <div class="input-group form-group-no-border input-lg">
+                                <span class="input-group-addon">
+                                    <i class="now-ui-icons users_circle-08"></i>
+                                </span>
+                                <input type="text" name="hlogo" class="form-control" placeholder="Home Team Logo">
+                            </div>
+                             <div class="input-group form-group-no-border input-lg">
+                                <span class="input-group-addon">
+                                    <i class="now-ui-icons users_circle-08"></i>
+                                </span>
+                                <input type="text" name="alogo" class="form-control" placeholder="Away Team Logo">
                             </div>
                             <div class="input-group form-group-no-border input-lg">
                                 <span class="input-group-addon">
                                     <i class="now-ui-icons text_caps-small"></i>
                                 </span>
-                                <input type="text" placeholder="Last Name..." class="form-control" />
+                                <input type="text" name="date" class="form-control date-picker" value="18/01/2018" data-datepicker-color="">
+                            </div>
+                            <div class="input-group form-group-no-border input-lg">
+                                <span class="input-group-addon">
+                                    <i class="now-ui-icons text_caps-small"></i>
+                                </span>
+                                <input type="text" name="time" class="form-control time-picker" value="18/01/2018" data-datepicker-color="">
                             </div>
                         </div>
                         <div class="footer text-center">
-                            <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Get Started</a>
-                        </div>
-                        <div class="pull-left">
-                            <h6>
-                                <a href="#pablo" class="link">Create Account</a>
-                            </h6>
-                        </div>
-                        <div class="pull-right">
-                            <h6>
-                                <a href="#pablo" class="link">Need Help?</a>
-                            </h6>
+                            <button name="submit" class="btn btn-primary btn-round btn-lg btn-block">Submit</a>
                         </div>
                     </form>
                 </div>
@@ -152,6 +166,24 @@
                     &copy;
                     <script>
                         document.write(new Date().getFullYear())
+                        
+$('.date-picker').each(function(){
+    $(this).datepicker({
+        templates:{
+            leftArrow: '<i class="now-ui-icons arrows-1_minimal-left"></i>',
+            rightArrow: '<i class="now-ui-icons arrows-1_minimal-right"></i>'
+        }
+    }).on('show', function() {
+            $('.datepicker').addClass('open');
+
+            datepicker_color = $(this).data('datepicker-color');
+            if( datepicker_color.length != 0){
+                $('.datepicker').addClass('datepicker-'+ datepicker_color +'');
+            }
+        }).on('hide', function() {
+            $('.datepicker').removeClass('open');
+        });
+});
                     </script>, Designed by
                     <a href="http://www.invisionapp.com" target="_blank">Invision</a>. Coded by
                     <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
